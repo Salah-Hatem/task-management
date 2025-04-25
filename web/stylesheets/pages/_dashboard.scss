@@ -1,0 +1,100 @@
+@use "../abstracts";
+@use "sass:map";
+:root {
+  --sidebar-width: 312px;
+}
+.dashboard-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  .content {
+    width: 100%;
+    padding: 24px;
+    transition:
+      margin-left 0.3s,
+      width 0.3s;
+    @media (max-width: #{map.get(abstracts.$breakpoints, "medium")}) {
+      padding: 8px;
+    }
+    @media (max-width: #{map.get(abstracts.$breakpoints, "large")}) {
+      margin-top: 24px;
+    }
+  }
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  @media (max-width: #{map.get(abstracts.$breakpoints, "medium")}) {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.user-message {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  @media (max-width: #{map.get(abstracts.$breakpoints, "large")}) {
+    display: none;
+  }
+  .btn-primary {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  p {
+    font-size: 16px;
+  }
+  @media (max-width: #{map.get(abstracts.$breakpoints, "medium")}) {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.header-buttons-container {
+  width: 400px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  select {
+    max-width: 200px;
+  }
+  @media (max-width: #{map.get(abstracts.$breakpoints, "medium")}) {
+    width: 100%;
+  }
+}
+
+.mobile-header {
+  // display: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  @media (max-width: #{map.get(abstracts.$breakpoints, "medium")}) {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    gap: 16px;
+  }
+}
+.display-name {
+  font-size: 16px;
+  font-weight: 400;
+}
+.email-text {
+  font-size: 12px;
+  color: abstracts.$grey;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+}

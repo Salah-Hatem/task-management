@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+.home-header {
+  margin: 16px auto;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  .logo-container {
+    justify-content: center;
+  }
+}
+
+.btn-group {
+  max-width: 400px;
+  display: flex;
+
+  gap: 10px;
+}
+
+.home-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}

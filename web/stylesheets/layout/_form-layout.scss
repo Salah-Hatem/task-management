@@ -1,0 +1,14 @@
+@use "../abstracts";
+@use "sass:map";
+
+.form-layout {
+  padding: 40px;
+  height: 100%;
+  .logo-container {
+    justify-content: center;
+  }
+
+  @media (max-width: #{map.get(abstracts.$breakpoints, "medium")}) {
+    padding: 20px;
+  }
+}

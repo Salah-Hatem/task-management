@@ -1,0 +1,50 @@
+@use "../abstracts";
+@use "sass:color";
+@use "sass:map";
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn-primary {
+  background-color: abstracts.$brand-color;
+  color: abstracts.$light-grey;
+  border: none;
+  padding: 8px 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  a {
+    color: abstracts.$light-grey;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: color.scale(abstracts.$brand-color, $lightness: -10%);
+  }
+  &:disabled {
+    background-color: #0d0d0d94;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: #{map.get(abstracts.$breakpoints, "large")}) {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.delete-btn {
+  all: unset;
+  display: flex;
+  .close-icon {
+    cursor: pointer;
+    &:hover {
+      color: red;
+    }
+  }
+}

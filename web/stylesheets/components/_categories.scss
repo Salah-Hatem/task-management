@@ -1,0 +1,21 @@
+@use "../abstracts";
+@use "sass:map";
+.category-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  @media (max-width: #{map.get(abstracts.$breakpoints, "large")}) {
+    font-size: 16px;
+  }
+}
+li.category-item {
+  list-style: none;
+}
+
+.category-actions {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}

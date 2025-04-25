@@ -1,0 +1,103 @@
+@use "../abstracts";
+@use "sass:map";
+
+.sidebar {
+  background-color: #fff;
+  flex-grow: 2;
+  position: sticky;
+  top: 0;
+  border: 1 solid abstracts.$light-grey;
+  height: 100vh;
+  padding: 24px;
+  box-shadow: 0px 4px 4px 0px rgba(108, 108, 108, 0.15);
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: abstracts.$text-color;
+  }
+  @media (max-width: #{map.get(abstracts.$breakpoints, "large")}) {
+    // display: none;
+    position: absolute;
+  }
+  .nav-icon {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(108, 108, 108, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -18px;
+    top: 75px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: abstracts.$light-grey;
+      //   box-shadow: 0px 6px 6px 0px rgba(108, 108, 108, 0.25);
+    }
+    @media (max-width: #{map.get(abstracts.$breakpoints, "large")}) {
+      display: none;
+    }
+  }
+}
+
+.sidebar-closed {
+  max-width: 80px;
+  padding: 24px 8px;
+  @media (max-width: #{map.get(abstracts.$breakpoints, "large")}) {
+    display: none;
+  }
+}
+
+.sidebar-open {
+  max-width: 312px;
+  min-width: 312px;
+  @media (max-width: #{map.get(abstracts.$breakpoints, "large")}) {
+    max-width: 260px;
+    min-width: 260px;
+    padding: 16px;
+  }
+}
+
+.sidebar-group {
+  margin-top: 8px;
+}
+
+.group-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 8px;
+  align-items: center;
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: abstracts.$text-color;
+  }
+}
+
+.sidebar-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    background: abstracts.$mid-grey;
+  }
+}
+
+.mobile-menu {
+  margin: 8px;
+  display: none;
+  @media (max-width: #{map.get(abstracts.$breakpoints, "large")}) {
+    display: inline-block;
+  }
+  &.bars {
+    position: absolute;
+  }
+}

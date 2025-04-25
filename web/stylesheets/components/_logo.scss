@@ -1,0 +1,21 @@
+@use "../abstracts";
+@use "sass:map";
+
+.logo-container {
+  width: 100%;
+  margin: 16px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  @media (max-width: #{map.get(abstracts.$breakpoints, "medium")}) {
+    margin: 8px;
+    font-size: 24px;
+  }
+
+  h2 {
+    @media (max-width: #{map.get(abstracts.$breakpoints, "medium")}) {
+      font-size: 20px;
+    }
+  }
+}
