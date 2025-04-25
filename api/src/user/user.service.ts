@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { hash } from 'argon2';
 import { Prisma } from '@prisma/client';
-import { scrapeLinkedInProfile } from 'utils/linkedInScraper';
+import { scrapeLinkedInProfile } from 'src/utils/linkedInScraper';
 
 @Injectable()
 export class UserService {

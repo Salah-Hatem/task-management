@@ -11,7 +11,7 @@ import {
   paginate,
   paginateOutput,
   PaginateOutput,
-} from 'utils/pagination.utils';
+} from 'src/utils/pagination.utils';
 
 @Injectable()
 export class TasksService {
