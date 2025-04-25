@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  email         String     @unique
+  name          String
+  password      String
+  linkedinUrl   String?
+  linkedinName  String?
+  linkedinImage String?
+  tasks         Task[]     @relation("UserTasks")
+  categories    Category[] @relation("UserCategories")
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+model Task {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  dueDate     DateTime?
+  done        Boolean   @default(false)
+  categoryId  String?   @db.ObjectId
+  category    Category? @relation("CategoryTasks", fields: [categoryId], references: [id])
+  userId      String    @db.ObjectId
+  user        User      @relation("UserTasks", fields: [userId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Category {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  userId    String   @db.ObjectId
+  user      User     @relation("UserCategories", fields: [userId], references: [id])
+  tasks     Task[]   @relation("CategoryTasks")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
